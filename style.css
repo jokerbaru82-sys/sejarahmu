@@ -1,0 +1,797 @@
+/* ============================================= */
+/* VARIABEL WARNA - Ubah warna di sini saja      */
+/* Mahasiswa cukup mengganti nilai di bawah ini   */
+/* ============================================= */
+:root {
+    /* Warna Utama / Primary */
+    --primary: #2d6a4f;
+    --primary-light: #40916c;
+    --primary-dark: #1b4332;
+
+    /* Warna Sekunder / Secondary */
+    --secondary: #5c7a99;
+    --secondary-light: #7a99b5;
+
+    /* Warna Aksen */
+    --accent: #f7c948;
+    --accent-light: #fce588;
+
+    /* Warna Background Utama */
+    --bg-main: #f0f7f4;
+    --bg-hero: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+    --bg-footer: #1b4332;
+
+    /* Warna Background Section / Card */
+    --bg-section: #ffffff;
+    --bg-card: #ffffff;
+
+    /* Warna Teks */
+    --text-primary: #ffffff;
+    --text-secondary: #1a1a2e;
+    --text-muted: #555555;
+
+    /* Warna Tambahan */
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1100px;
+    --transition: 0.3s ease;
+}
+
+/* ============================================= */
+/* RESET & BASE - Mengatur ulas style bawaan     */
+/* ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* Agar anchor tidak tertutup navbar */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ============================================= */
+/* CONTAINER - Pembatas lebar konten             */
+/* ============================================= */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============================================= */
+/* NAVBAR - Menu navigasi atas                    */
+/* ============================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-dark);
+    box-shadow: 0 2px 12px var(--shadow-color);
+    transition: background-color var(--transition);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+/* Logo/Nama di navbar */
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand:hover {
+    color: var(--accent);
+}
+
+/* Daftar menu navbar */
+.nav-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--accent);
+}
+
+/* Tombol Hamburger (hanya muncul di mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Animasi hamburger saat terbuka */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ============================================= */
+/* HERO SECTION                                   */
+/* ============================================= */
+.hero {
+    background: var(--bg-hero);
+    padding: 120px 0 80px;
+    color: var(--text-primary);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 32px;
+    line-height: 1.8;
+}
+
+/* Gambar Hero */
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================= */
+/* TOMBOL / BUTTON                                */
+/* ============================================= */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--text-secondary);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-light);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: var(--text-secondary);
+}
+
+.btn-lg {
+    padding: 16px 40px;
+    font-size: 1rem;
+}
+
+/* ============================================= */
+/* SECTION UMUM                                   */
+/* ============================================= */
+.section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 48px;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.section-header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* ============================================= */
+/* CARD UMUM                                      */
+/* ============================================= */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 2px 12px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px var(--shadow-hover);
+}
+
+/* Nomor pada card masalah */
+.card-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    opacity: 0.2;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+/* ============================================= */
+/* GRID CARD - 3 kolom (masalah)                 */
+/* ============================================= */
+.card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Target pengguna badge */
+.target-badge {
+    text-align: center;
+    margin-top: 40px;
+    padding: 16px 32px;
+    background-color: var(--accent);
+    border-radius: 50px;
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.badge-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.badge-value {
+    font-weight: 700;
+    color: var(--primary-dark);
+    background: rgba(255,255,255,0.6);
+    padding: 4px 16px;
+    border-radius: 50px;
+}
+
+/* ============================================= */
+/* SOLUSI SECTION                                 */
+/* ============================================= */
+.solusi {
+    background-color: var(--bg-section);
+}
+
+.solusi-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.solusi-text h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    line-height: 1.35;
+}
+
+.solusi-text > p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.8;
+}
+
+.solusi-text h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+/* List cara kerja (nomor urut) */
+.cara-kerja {
+    list-style: decimal;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.cara-kerja li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* List manfaat (bullet) */
+.manfaat-list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.manfaat-list li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+/* Gambar Solusi */
+.solusi-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* ============================================= */
+/* FITUR SECTION - Grid 2x2                       */
+/* ============================================= */
+.card-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.fitur-card {
+    text-align: center;
+    padding: 40px 28px;
+}
+
+.fitur-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.fitur-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+/* ============================================= */
+/* AKSES SECTION                                  */
+/* ============================================= */
+.akses {
+    background-color: var(--primary);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.akses-inner {
+    max-width: 700px;
+}
+
+.akses-inner h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.akses-inner > p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 36px;
+    line-height: 1.8;
+}
+
+/* Tombol akses produk */
+.akses-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+/* Wrapper embed Canva */
+.embed-wrapper {
+    margin-top: 20px;
+}
+
+.embed-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%; /* Rasio 16:9 */
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.embed-credit {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.embed-credit a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* ============================================= */
+/* TIM SECTION                                    */
+/* ============================================= */
+.tim {
+    background-color: var(--bg-section);
+}
+
+.tim-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.tim-card {
+    text-align: center;
+    padding: 28px 16px;
+}
+
+/* Foto profil bulat */
+.tim-photo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-light);
+    background-color: #e0e0e0;
+}
+
+.tim-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+}
+
+.tim-role {
+    font-size: 0.75rem;
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* ============================================= */
+/* FOOTER                                         */
+/* ============================================= */
+.footer {
+    background-color: var(--bg-footer);
+    color: var(--text-primary);
+    padding: 48px 0 32px;
+}
+
+.footer-top {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-top h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.footer-top p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ============================================= */
+/* UTILITY CLASS - Gambar                         */
+/* ============================================= */
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-circle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fallback gambar gagal dimuat */
+.img-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d1d5db;
+    color: #6b7280;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 8px;
+}
+
+/* ============================================= */
+/* ANIMASI SCROLL - Elemen muncul saat di-scroll */
+/* ============================================= */
+.anim-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.anim-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================= */
+/* RESPONSIVE - TABLET (max-width: 900px)         */
+/* ============================================= */
+@media (max-width: 900px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .hero {
+        padding: 100px 0 60px;
+        min-height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-image img {
+        aspect-ratio: 16 / 9;
+        max-height: 350px;
+    }
+
+    .solusi-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .card-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .tim-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+/* ============================================= */
+/* RESPONSIVE - MOBILE (max-width: 640px)         */
+/* ============================================= */
+@media (max-width: 640px) {
+    /* Tampilkan hamburger, sembunyikan menu */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-dark);
+        padding: 16px 24px;
+        gap: 4px;
+        box-shadow: 0 8px 24px var(--shadow-color);
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu a {
+        padding: 12px 16px;
+        border-radius: var(--radius-sm);
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .tim-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .tim-card {
+        padding: 20px 12px;
+    }
+
+    .tim-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .akses-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-lg {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .target-badge {
+        display: block;
+        margin-left: 0;
+        transform: none;
+        padding: 12px 20px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
+    }
+}
