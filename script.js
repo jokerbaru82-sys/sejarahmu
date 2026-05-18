@@ -1,141 +1,122 @@
-/* ============================================= */
-/* SCRIPT.JS - JavaScript untuk landing page     */
-/* Kode dibuat sederhana agar mudah dipelajari   */
-/* ============================================= */
+/* ============================================================
+   script.js — Sejarah-Mu Landing Page
+   Kelompok: PENTACODE | Kelas A / PAI | 2026
+   ============================================================
+   Berisi 4 fungsi utama:
+   1. Hamburger menu (untuk mobile)
+   2. Smooth scroll (saat klik menu navbar)
+   3. Animasi fade-in saat scroll
+   4. Fallback gambar yang gagal dimuat
+   ============================================================ */
 
-// =============================================
-// 1. HAMBURGER MENU - Buka/tutup menu di mobile
-// =============================================
+
+/* ===== 1. HAMBURGER MENU (MOBILE) ===== */
+
+// Ambil elemen hamburger dan menu dari HTML
 const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+const navMenu   = document.getElementById('nav-menu');
 
-// Ketika hamburger diklik
+// Jalankan saat tombol hamburger diklik
 hamburger.addEventListener('click', function () {
-    // Toggle class 'active' pada hamburger (untuk animasi X)
-    hamburger.classList.toggle('active');
-    // Toggle class 'open' pada menu (untuk menampilkan/menyembunyikan)
-    navMenu.classList.toggle('open');
+  // Toggle class 'active' dan 'open' untuk membuka/menutup menu
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('open');
 });
 
-// =============================================
-// 2. TUTUP MENU SAAT LINK DIKLIK (Mobile)
-// Agar menu otomatis tertutup setelah memilih
-// =============================================
-const navLinks = document.querySelectorAll('.nav-menu a');
-
+// Tutup menu saat salah satu link diklik
+const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-        // Hapus class active dan open
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
-    });
+  link.addEventListener('click', function () {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('open');
+  });
 });
 
-// =============================================
-// 3. ANIMASI SCROLL - Elemen muncul saat di-scroll
-// Menggunakan Intersection Observer API
-// =============================================
-const animElements = document.querySelectorAll('.anim-fade');
 
-// Membuat observer yang mengawasi setiap elemen
+/* ===== 2. SMOOTH SCROLL ===== */
+
+// Saat link navbar diklik, gulir halaman dengan mulus ke section tujuan
+navLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    // Ambil nilai href, contoh: "#fitur"
+    const href = link.getAttribute('href');
+
+    // Hanya proses jika href mengarah ke section di halaman ini (#...)
+    if (href && href.startsWith('#')) {
+      e.preventDefault(); // Hentikan aksi default browser (lompat langsung)
+
+      const targetEl = document.querySelector(href); // Cari element tujuan
+      if (targetEl) {
+        // Hitung posisi dengan mempertimbangkan tinggi navbar (64px)
+        const offsetTop = targetEl.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      }
+    }
+  });
+});
+
+
+/* ===== 3. ANIMASI FADE-IN SAAT SCROLL ===== */
+
+// Gunakan IntersectionObserver untuk mendeteksi elemen yang masuk layar
+const fadeElements = document.querySelectorAll('.fade-in');
+
+// Buat observer — fungsi ini dipanggil saat elemen terlihat di layar
 const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-        // Jika elemen terlihat di layar
-        if (entry.isIntersecting) {
-            // Tambahkan class 'visible' untuk memunculkan animasi
-            entry.target.classList.add('visible');
-            // Berhenti mengawasi elemen ini (animasi hanya sekali)
-            observer.unobserve(entry.target);
-        }
-    });
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      // Tambahkan class 'visible' agar animasi CSS aktif
+      entry.target.classList.add('visible');
+      // Setelah elemen terlihat, tidak perlu diobservasi lagi
+      observer.unobserve(entry.target);
+    }
+  });
 }, {
-    // Elemen dianggap terlihat jika sudah 15% masuk layar
-    threshold: 0.15
+  threshold: 0.12 // Animasi mulai saat 12% elemen terlihat
 });
 
-// Daftarkan semua elemen animasi ke observer
-animElements.forEach(function (el) {
-    observer.observe(el);
+// Daftarkan semua elemen .fade-in ke observer
+fadeElements.forEach(function (el) {
+  observer.observe(el);
 });
 
-// =============================================
-// 4. FALLBACK GAMBAR - Jika gambar gagal dimuat
-// Menampilkan pesan pengganti agar layout tidak rusak
-// =============================================
+
+/* ===== 4. FALLBACK GAMBAR ===== */
+
+// Jika gambar gagal dimuat, tampilkan teks pengganti
 const allImages = document.querySelectorAll('img');
-
 allImages.forEach(function (img) {
-    // Jika gambar gagal dimuat
-    img.addEventListener('error', function () {
-        // Buat elemen pengganti
-        var fallback = document.createElement('div');
-        fallback.className = 'img-fallback';
-        fallback.textContent = 'Gambar belum ditambahkan';
+  img.addEventListener('error', function () {
+    // Sembunyikan gambar yang gagal
+    img.style.display = 'none';
 
-        // Ganti gambar dengan elemen fallback
-        img.parentNode.replaceChild(fallback, img);
-    });
+    // Tampilkan elemen fallback jika ada di sebelahnya
+    const fallback = img.nextElementSibling;
+    if (fallback && fallback.classList.contains('img-fallback')) {
+      fallback.style.display = 'flex';
+    }
+
+    // Beri warna abu-abu pada container gambar
+    const parent = img.parentElement;
+    if (parent) {
+      parent.style.backgroundColor = '#e8e8e8';
+      parent.style.minHeight = '150px';
+      parent.style.display = 'flex';
+      parent.style.alignItems = 'center';
+      parent.style.justifyContent = 'center';
+    }
+  });
 });
 
-// =============================================
-// 5. TOMBOL MATERI - Tampilkan embed Canva
-// Menampilkan/menyembunyikan embed saat tombol diklik
-// =============================================
-var btnMateri = document.getElementById('btnMateri');
-var embedWrapper = document.getElementById('embedWrapper');
 
-if (btnMateri && embedWrapper) {
-    btnMateri.addEventListener('click', function (e) {
-        // Cegah aksi default link (karena pakai href=#)
-        e.preventDefault();
+/* ===== 5. NAVBAR: UBAH TAMPILAN SAAT DISCROLL ===== */
 
-        // Toggle tampilan embed
-        if (embedWrapper.style.display === 'none') {
-            embedWrapper.style.display = 'block';
-            // Ubah teks tombol
-            btnMateri.textContent = 'Tutup Materi';
-            // Scroll ke embed
-            embedWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            embedWrapper.style.display = 'none';
-            btnMateri.textContent = 'Materi';
-        }
-    });
-}
-
-// =============================================
-// 6. NAVBAR AKTIF - Menandai section yang sedang dilihat
-// Opsional: memberi efek visual pada link navbar
-// =============================================
-var sections = document.querySelectorAll('section[id]');
-var menuItems = document.querySelectorAll('.nav-menu a');
-
-// Fungsi untuk mengecek section mana yang sedang terlihat
-function updateActiveNav() {
-    var scrollPos = window.scrollY + 100;
-
-    sections.forEach(function (section) {
-        var top = section.offsetTop;
-        var height = section.offsetHeight;
-        var id = section.getAttribute('id');
-
-        // Jika posisi scroll berada di dalam section ini
-        if (scrollPos >= top && scrollPos < top + height) {
-            // Hapus class 'active' dari semua menu
-            menuItems.forEach(function (item) {
-                item.classList.remove('active');
-            });
-            // Tambahkan class 'active' ke menu yang sesuai
-            var activeLink = document.querySelector('.nav-menu a[href="#' + id + '"]');
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        }
-    });
-}
-
-// Jalankan saat halaman di-scroll
-window.addEventListener('scroll', updateActiveNav);
-
-// Jalankan sekali saat halaman pertama kali dimuat
-updateActiveNav();
+// Navbar sedikit berubah saat halaman discroll ke bawah
+window.addEventListener('scroll', function () {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 60) {
+    navbar.style.boxShadow = '0 2px 16px rgba(0,0,0,0.18)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+});
