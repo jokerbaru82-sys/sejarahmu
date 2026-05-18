@@ -1,416 +1,293 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sejarah-Mu | Kisah Seru, Ilmu Baru</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sejarah-MU | Aplikasi Pembelajaran Sejarah Muhammadiyah</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
+  <!-- ===================== NAVBAR ===================== -->
   <nav class="navbar" id="navbar">
-    <div class="nav-container">
+    <div class="navbar-container">
       <!-- Logo / Nama Produk -->
-      <a href="#hero" class="nav-logo">Sejarah<span>MU</span></a>
+      <a href="#beranda" class="navbar-logo">Sejarah-MU</a>
 
-      <!-- Tombol hamburger untuk mobile -->
-      <button class="hamburger" id="hamburger" aria-label="Buka menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Tombol Hamburger (hanya muncul di mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Menu navigasi">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
 
-      <!-- Menu navigasi -->
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#hero"    class="nav-link">Beranda</a></li>
+      <!-- Menu Navigasi -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#beranda" class="nav-link">Beranda</a></li>
         <li><a href="#masalah" class="nav-link">Masalah</a></li>
-        <li><a href="#solusi"  class="nav-link">Solusi</a></li>
-        <li><a href="#fitur"   class="nav-link">Fitur</a></li>
-        <li><a href="#akses"   class="nav-link">Akses</a></li>
-        <li><a href="#tim"     class="nav-link">Tim</a></li>
+        <li><a href="#solusi" class="nav-link">Solusi</a></li>
+        <li><a href="#fitur" class="nav-link">Fitur</a></li>
+        <li><a href="#akses" class="nav-link">Akses</a></li>
+        <li><a href="#tim" class="nav-link">Tim</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="hero">
-    <div class="container hero-grid">
-
-      <!-- Kolom kiri: teks -->
-      <div class="hero-text fade-in">
-        <span class="badge">Aplikasi Edukasi Android</span>
-        <h1>Sejarah<span class="accent">MU</span></h1>
-        <p class="tagline">Kisah Seru, Ilmu Baru</p>
-        <p class="hero-desc">
-          Sejarahmu adalah aplikasi edukasi sejarah Muhammadiyah berbasis Android
-          yang dirancang khusus untuk membantu siswa Sekolah Dasar mempelajari
-          biografi tokoh pendiri dan persebaran Amal Usaha Muhammadiyah secara interaktif.
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="beranda">
+    <div class="container hero-container">
+      <!-- Kolom Kiri: Teks -->
+      <div class="hero-text">
+        <h1 class="hero-title animasi-muncul">Sejarah-MU</h1>
+        <p class="hero-tagline animasi-muncul">Sejarah MU: Kisah seru, Ilmu baru</p>
+        <p class="hero-desc animasi-muncul">
+          Sejarahmu adalah aplikasi edukasi sejarah Muhammadiyah berbasis Android yang dirancang khusus untuk membantu siswa Sekolah Dasar (SD/MIM) mempelajari biografi tokoh pendiri dan persebaran Amal Usaha Muhammadiyah (AUM) secara interaktif.
         </p>
-        <div class="hero-buttons">
-          <a href="#akses" class="btn btn-primary">Coba Sekarang</a>
-          <a href="#fitur" class="btn btn-outline">Lihat Fitur</a>
-        </div>
+        <a href="#akses" class="btn btn-primary animasi-muncul">Mulai Belajar</a>
       </div>
-
-      <!-- Kolom kanan: gambar mockup -->
-      <div class="hero-image fade-in delay-1">
-        <img
-          src="https://i.ibb.co.com/jPLcLjZK/Whats-App-Image-2026-05-06-at-17-58-58.jpg"
+      <!-- Kolom Kanan: Gambar -->
+      <div class="hero-image animasi-muncul">
+        <img 
+          src="https://i.ibb.co.com/KjnZk8Yx/Whats-App-Image-2026-05-18-at-10-49-27.jpg" 
           alt="gambar sejarah muhammadiyah"
-          class="mockup-img"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none';"
-        />
-        <!-- Fallback jika gambar gagal dimuat -->
-        <div class="img-fallback">📱 Gambar belum ditambahkan</div>
+          class="img-fallback"
+        >
       </div>
-
-    </div>
-
-    <!-- Dekorasi gelombang bawah hero -->
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--bg-main)"/>
-      </svg>
     </div>
   </section>
 
-  <!-- ===== MASALAH SECTION ===== -->
-  <section class="section" id="masalah">
+  <!-- ===================== MASALAH SECTION ===================== -->
+  <section class="section section-alt" id="masalah">
     <div class="container">
+      <h2 class="section-title animasi-muncul">Minimnya Aplikasi Pembelajaran Interaktif Muhammadiyah untuk Anak Sekolah Dasar</h2>
+      <p class="section-desc animasi-muncul">
+        Pembelajaran sejarah Muhammadiyah di tingkat Sekolah Dasar masih menghadapi berbagai kendala terutama dalam hal penyajian materi yang kurang menarik dan belum didukung oleh media digital interaktif yang sesuai dengan karakteristik belajar anak.
+      </p>
 
-      <div class="section-header fade-in">
-        <h2>Minimnya Aplikasi Pembelajaran Interaktif Muhammadiyah untuk Anak Sekolah Dasar</h2>
-        <p class="section-sub">
-          Pembelajaran sejarah Muhammadiyah di tingkat Sekolah Dasar masih menghadapi berbagai kendala
-          terutama dalam hal penyajian materi yang kurang menarik dan belum didukung oleh media digital
-          interaktif yang sesuai dengan karakteristik belajar anak.
-        </p>
-      </div>
-
-      <!-- 3 Card masalah -->
-      <div class="cards-3 fade-in">
-
-        <div class="card card-masalah">
-          <div class="card-icon">📄</div>
-          <h3>Materi Masih Kaku</h3>
-          <p>
-            Penyajian materi sejarah yang masih didominasi oleh teks membuat siswa Sekolah Dasar
-            kesulitan memahami isi pembelajaran secara visual maupun kognitif. Materi terasa abstrak
-            dan kurang mudah dipahami oleh anak-anak.
+      <!-- 3 Card Masalah -->
+      <div class="card-grid-3">
+        <!-- Card Masalah 1 -->
+        <div class="card animasi-muncul">
+          <div class="card-icon">📚</div>
+          <h3 class="card-title">Materi Masih Kaku</h3>
+          <p class="card-text">
+            Penyajian materi sejarah yang masih didominasi oleh teks membuat siswa Sekolah Dasar kesulitan dalam memahami isi pembelajaran secara visual maupun kognitif. Hal ini menyebabkan materi terasa abstrak dan kurang mudah dipahami oleh anak-anak.
           </p>
         </div>
-
-        <div class="card card-masalah">
-          <div class="card-icon">😴</div>
-          <h3>Minim Interaktivitas</h3>
-          <p>
-            Kurangnya fitur interaktif seperti storytelling, animasi, dan gamifikasi menjadikan
-            pembelajaran sejarah terasa monoton dan kurang menarik, sehingga siswa cenderung cepat
-            bosan dalam mengikuti proses belajar.
+        <!-- Card Masalah 2 -->
+        <div class="card animasi-muncul">
+          <div class="card-icon">📵</div>
+          <h3 class="card-title">Minim Interaktivitas</h3>
+          <p class="card-text">
+            Kurangnya fitur interaktif seperti storytelling, animasi, dan gamifikasi menjadikan pembelajaran sejarah terasa monoton dan kurang menarik, sehingga siswa cenderung cepat bosan dalam mengikuti proses belajar.
           </p>
         </div>
-
-        <div class="card card-masalah">
+        <!-- Card Masalah 3 -->
+        <div class="card animasi-muncul">
           <div class="card-icon">📉</div>
-          <h3>Rendahnya Motivasi Belajar Mandiri</h3>
-          <p>
-            Keterbatasan media pembelajaran mandiri yang menarik membuat siswa kurang terdorong
-            untuk mempelajari sejarah Muhammadiyah di luar jam pelajaran sehingga pemahaman
-            mereka menjadi tidak optimal.
+          <h3 class="card-title">Rendahnya Motivasi Belajar Mandiri</h3>
+          <p class="card-text">
+            Keterbatasan media pembelajaran mandiri yang menarik dan teruji membuat siswa kurang terdorong untuk mempelajari sejarah Muhammadiyah di luar jam pelajaran sehingga pemahaman mereka menjadi tidak optimal.
           </p>
         </div>
-
       </div>
 
-      <!-- Target pengguna -->
-      <div class="target-badge fade-in">
-        🎯 Target Pengguna: <strong>Siswa Sekolah Dasar (SD/MIM)</strong>
-      </div>
-
+      <!-- Target Pengguna -->
+      <p class="target-text animasi-muncul">🎯 Target Pengguna: <strong>Siswa Sekolah Dasar</strong></p>
     </div>
   </section>
 
-  <!-- ===== SOLUSI SECTION ===== -->
-  <section class="section section-alt" id="solusi">
+  <!-- ===================== SOLUSI SECTION ===================== -->
+  <section class="section" id="solusi">
     <div class="container">
+      <h2 class="section-title animasi-muncul">Sejarah MU: Solusi Digital Interaktif untuk Mengenalkan Sejarah Muhammadiyah pada Anak</h2>
 
-      <div class="section-header fade-in">
-        <h2>Sejarah MU: Solusi Digital Interaktif untuk Mengenalkan Sejarah Muhammadiyah pada Anak</h2>
-        <p class="section-sub">
-          Aplikasi ini menghadirkan sejarah Muhammadiyah dalam bentuk cerita bergambar, animasi,
-          kuis, dan permainan edukatif sehingga anak-anak bisa belajar dengan cara seru, mudah,
-          dan menyenangkan.
-        </p>
-      </div>
+      <div class="solusi-container animasi-muncul">
+        <!-- Kolom Teks -->
+        <div class="solusi-text">
+          <p class="solusi-desc">
+            Aplikasi ini menghadirkan sejarah Muhammadiyah dalam bentuk cerita bergambar, animasi, kuis, dan permainan edukatif sehingga anak-anak bisa belajar dengan cara seru, mudah, dan menyenangkan, sekaligus menanamkan nilai-nilai Muhammadiyah sejak dini.
+          </p>
 
-      <div class="solusi-grid fade-in">
-
-        <!-- Gambar solusi -->
-        <div class="solusi-image">
-          <img
-            src="https://i.ibb.co.com/xt6VPxQk/Gemini-Generated-Image-askntuaskntuaskn.png"
-            alt="solusi"
-            onerror="this.parentElement.classList.add('img-error'); this.style.display='none';"
-          />
-          <div class="img-fallback">🖼️ Gambar belum ditambahkan</div>
-        </div>
-
-        <!-- Cara kerja & manfaat -->
-        <div class="solusi-content">
-          <h3>Cara Kerja Aplikasi</h3>
-          <ol class="cara-kerja">
+          <h3 class="solusi-subtitle">Cara Kerja:</h3>
+          <ol class="solusi-list">
             <li>Pilih fitur (cerita, timeline, kuis, game).</li>
-            <li>Belajar lewat cerita bergambar / animasi.</li>
-            <li>Uji pemahaman dengan kuis &amp; game.</li>
+            <li>Belajar lewat cerita bergambar/animasi.</li>
+            <li>Uji pemahaman dengan kuis & game.</li>
             <li>Dengar narasi audio untuk memudahkan.</li>
             <li>Tanamkan nilai Muhammadiyah di setiap cerita.</li>
           </ol>
 
-          <h3>Manfaat Utama</h3>
-          <div class="manfaat-list">
-            <div class="manfaat-item">
-              <span class="manfaat-icon">✅</span>
-              <p>Merancang dan mengembangkan aplikasi sejarah Muhammadiyah berbasis Android mencakup materi biografi pendiri dan sejarah amal usaha sesuai kurikulum kemuhammadiyahan tingkat SD.</p>
-            </div>
-            <div class="manfaat-item">
-              <span class="manfaat-icon">✅</span>
-              <p>Mengimplementasikan fitur interaktif seperti Digital Storytelling, peta visual amal usaha (GIS sederhana), dan sistem gamifikasi untuk meningkatkan daya tarik materi sejarah.</p>
-            </div>
-            <div class="manfaat-item">
-              <span class="manfaat-icon">✅</span>
-              <p>Melakukan uji usabilitas kepada minimal 30 siswa SD Muhammadiyah untuk menganalisis kemudahan penggunaan dan efektivitasnya dalam meningkatkan pemahaman materi sejarah.</p>
-            </div>
-          </div>
+          <h3 class="solusi-subtitle">Manfaat:</h3>
+          <ul class="solusi-list">
+            <li>Merancang dan Mengembangkan aplikasi pengembangan sejarah Muhammadiyah berbasis Android bersama "SejarahMU"</li>
+            <li>Mengimplementasikan fitur interaktif Digital Storytelling, peta visual amal usaha (GIS sederhana), dan sistem gamifikasi</li>
+            <li>Melakukan uji usabilitas aplikasi kepada minimal 30 siswa SD Muhammadiyah</li>
+          </ul>
         </div>
 
+        <!-- Kolom Gambar -->
+        <div class="solusi-image">
+          <img 
+            src="https://i.ibb.co.com/xt6VPxQk/Gemini-Generated-Image-askntuaskntuaskn.png" 
+            alt="solusi"
+            class="img-fallback"
+          >
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FITUR SECTION ===== -->
-  <section class="section" id="fitur">
+  <!-- ===================== FITUR SECTION ===================== -->
+  <section class="section section-alt" id="fitur">
     <div class="container">
+      <h2 class="section-title animasi-muncul">Fitur Utama Aplikasi</h2>
+      <p class="section-desc animasi-muncul">
+        Produk ini dirancang untuk mendukung proses pembelajaran sejarah Muhammadiyah agar menjadi lebih mudah, interaktif, menarik, dan menyenangkan bagi siswa Sekolah Dasar.
+      </p>
 
-      <div class="section-header fade-in">
-        <h2>Fitur Utama Aplikasi</h2>
-        <p class="section-sub">
-          Produk ini dirancang untuk mendukung proses pembelajaran sejarah Muhammadiyah agar menjadi
-          lebih mudah, interaktif, menarik, dan menyenangkan bagi siswa Sekolah Dasar.
-        </p>
-      </div>
-
-      <!-- Grid 4 fitur -->
-      <div class="cards-4 fade-in">
-
-        <div class="card card-fitur">
-          <div class="fitur-icon">📖</div>
-          <h3>Narasi Interaktif</h3>
-          <p>
-            Menyajikan kisah inspiratif tokoh-tokoh Muhammadiyah melalui ilustrasi visual yang menarik
-            serta audio storytelling, sehingga siswa dapat memahami materi secara lebih hidup dan imajinatif.
+      <div class="card-grid-4">
+        <!-- Fitur 1 -->
+        <div class="card animasi-muncul">
+          <div class="card-icon">📖</div>
+          <h3 class="card-title">Narasi Interaktif</h3>
+          <p class="card-text">
+            Menyajikan kisah inspiratif tokoh-tokoh Muhammadiyah melalui ilustrasi visual yang menarik serta audio storytelling, sehingga siswa dapat memahami materi secara lebih hidup dan imajinatif.
           </p>
         </div>
-
-        <div class="card card-fitur">
-          <div class="fitur-icon">🗺️</div>
-          <h3>Peta Amal Usaha</h3>
-          <p>
-            Menampilkan visualisasi peta interaktif yang membantu siswa mengenal persebaran amal usaha
-            Muhammadiyah, seperti sekolah, rumah sakit, dan panti asuhan secara nyata dan kontekstual.
+        <!-- Fitur 2 -->
+        <div class="card animasi-muncul">
+          <div class="card-icon">🗺️</div>
+          <h3 class="card-title">Peta Amal Usaha</h3>
+          <p class="card-text">
+            Menampilkan visualisasi peta interaktif yang membantu siswa mengenal persebaran amal usaha Muhammadiyah, seperti sekolah, rumah sakit, dan panti asuhan secara nyata dan kontekstual.
           </p>
         </div>
-
-        <div class="card card-fitur">
-          <div class="fitur-icon">🎮</div>
-          <h3>Gamifikasi Seru</h3>
-          <p>
-            Dilengkapi dengan kuis "Jelajah Sejarah" serta sistem poin dan lencana (badge) sebagai
-            bentuk apresiasi, guna meningkatkan motivasi dan keterlibatan siswa dalam belajar.
+        <!-- Fitur 3 -->
+        <div class="card animasi-muncul">
+          <div class="card-icon">🎮</div>
+          <h3 class="card-title">Gamifikasi Seru</h3>
+          <p class="card-text">
+            Dilengkapi dengan kuis "Jelajah Sejarah" serta sistem poin dan lencana (badge) sebagai bentuk apresiasi, guna meningkatkan motivasi dan keterlibatan siswa dalam belajar.
           </p>
         </div>
-
-        <div class="card card-fitur">
-          <div class="fitur-icon">📊</div>
-          <h3>Jejak Belajar</h3>
-          <p>
-            Menyediakan fitur pemantauan progres yang memungkinkan siswa melihat riwayat pembelajaran,
-            materi yang telah dipelajari, serta koleksi lencana yang berhasil diperoleh.
+        <!-- Fitur 4 -->
+        <div class="card animasi-muncul">
+          <div class="card-icon">🏅</div>
+          <h3 class="card-title">Jejak Belajar</h3>
+          <p class="card-text">
+            Menyediakan fitur pemantauan progres yang memungkinkan siswa melihat riwayat pembelajaran, materi yang telah dipelajari serta koleksi lencana yang berhasil diperoleh.
           </p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ===== AKSES PRODUK / DEMO SECTION ===== -->
+  <!-- ===================== AKSES PRODUK / DEMO SECTION ===================== -->
   <section class="section section-akses" id="akses">
-    <div class="container">
+    <div class="container akses-container">
+      <h2 class="section-title animasi-muncul">Sejarah MU</h2>
+      <p class="section-desc animasi-muncul">
+        Jelajahi perjalanan satu abad lebih gerakan Muhammadiyah dalam mencerahkan semesta. Melalui menu ini, Anda dapat mengakses materi interaktif, dokumentasi sejarah, hingga simulasi peran tokoh dalam membangun pilar pendidikan dan kesehatan di Indonesia. Klik tombol di bawah untuk memulai pengalaman belajar yang inspiratif.
+      </p>
 
-      <div class="section-header fade-in">
-        <h2>Sejarah MU</h2>
-        <p class="section-sub">
-          Jelajahi perjalanan satu abad lebih gerakan Muhammadiyah dalam mencerahkan semesta.
-          Melalui menu ini, Anda dapat mengakses materi interaktif, dokumentasi sejarah, hingga
-          simulasi peran tokoh dalam membangun pilar pendidikan dan kesehatan di Indonesia.
-          Klik tombol di bawah untuk memulai pengalaman belajar yang inspiratif.
-        </p>
-      </div>
-
-      <div class="akses-buttons fade-in">
-        <!-- Tombol 1: Halaman Pembelajaran -->
-        <a href="belajar.html" class="btn btn-primary btn-large">
-          📚 Halaman Pembelajaran
+      <!-- Tombol Akses -->
+      <div class="akses-buttons animasi-muncul">
+        <a href="https://www.canva.com/design/DAHHThAkjEs/hpQPv305KjRicacUJLhz3w/view?embed" target="_blank" rel="noopener" class="btn btn-accent">
+          Halaman Pembelajaran
         </a>
-
-        <!-- Tombol 2: Materi (link ke Canva) -->
-        <a
-          href="https://www.canva.com/design/DAHHThAkjEs/hpQPv305KjRicacUJLhz3w/view?utm_content=DAHHThAkjEs&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-          target="_blank"
-          rel="noopener"
-          class="btn btn-secondary btn-large"
-        >
-          🎨 Materi
+        <a href="belajar.html" class="btn btn-secondary">
+          Materi
         </a>
       </div>
-
-      <!-- Embed preview Canva -->
-      <div class="canva-embed fade-in">
-        <iframe
-          loading="lazy"
-          src="https://www.canva.com/design/DAHHThAkjEs/hpQPv305KjRicacUJLhz3w/view?embed"
-          allowfullscreen
-          allow="fullscreen"
-          title="Sejarah Muhammadiyah: Perjalanan Modern Islam Indonesia"
-        ></iframe>
-      </div>
-
     </div>
   </section>
 
-  <!-- ===== TIM SECTION ===== -->
-  <section class="section" id="tim">
+  <!-- ===================== TIM SECTION ===================== -->
+  <section class="section section-alt" id="tim">
     <div class="container">
+      <h2 class="section-title animasi-muncul">PENTACODE</h2>
+      <p class="section-desc animasi-muncul">
+        Pentacode adalah simbol lima kekuatan pemikiran yang bersatu membuat pembaharuan Pendidikan Islam. Pentacode Group ini juga beranggotakan lima mahasiswa selaras dengan arti dari "Penta" berasal dari bahasa Yunani yang berarti lima, "Code" berarti kode, simbol, atau sistem makna.
+      </p>
 
-      <div class="section-header fade-in">
-        <h2>PENTACODE</h2>
-        <p class="section-sub">
-          Pentacode adalah simbol lima kekuatan pemikiran yang bersatu membuat pembaharuan
-          Pendidikan Islam. Beranggotakan lima mahasiswa — selaras dengan arti "Penta"
-          (bahasa Yunani: lima) dan "Code" (kode / sistem makna).
-        </p>
-      </div>
-
-      <!-- Grid anggota tim -->
-      <div class="tim-grid fade-in">
-
+      <div class="tim-grid">
         <!-- Anggota 1 -->
-        <div class="card card-tim">
-          <div class="foto-wrapper">
-            <img
-              src="https://i.ibb.co.com/Wv74zy2F/Whats-App-Image-2026-05-06-at-17-27-56.jpg"
+        <div class="tim-card animasi-muncul">
+          <div class="tim-photo">
+            <img 
+              src="https://i.ibb.co.com/Wv74zy2F/Whats-App-Image-2026-05-06-at-17-27-56.jpg" 
               alt="foto seftin"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="foto-fallback">👤</div>
+              class="img-fallback img-circle"
+            >
           </div>
-          <h3>SEFTIN NAFILA</h3>
-          <span class="peran">LEADER &amp; KODULAR DEVELOPER</span>
+          <h3 class="tim-name">SEFTIN NAFILA</h3>
+          <p class="tim-role">LEADER & KODULAR DEVELOPER</p>
         </div>
-
         <!-- Anggota 2 -->
-        <div class="card card-tim">
-          <div class="foto-wrapper">
-            <img
-              src="https://i.ibb.co.com/m54Vqn7Q/Whats-App-Image-2026-05-06-at-19-47-37.jpg"
+        <div class="tim-card animasi-muncul">
+          <div class="tim-photo">
+            <img 
+              src="https://i.ibb.co.com/m54Vqn7Q/Whats-App-Image-2026-05-06-at-19-47-37.jpg" 
               alt="foto tiara"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="foto-fallback">👤</div>
+              class="img-fallback img-circle"
+            >
           </div>
-          <h3>TIARA RAMADINA</h3>
-          <span class="peran">CANVA CONTENT DESIGNER</span>
+          <h3 class="tim-name">TIARA RAMADINA</h3>
+          <p class="tim-role">CANVA CONTENT DESIGNER</p>
         </div>
-
         <!-- Anggota 3 -->
-        <div class="card card-tim">
-          <div class="foto-wrapper">
-            <img
-              src="https://i.ibb.co.com/3yf0m2sh/Whats-App-Image-2026-05-06-at-17-49-13.jpg"
+        <div class="tim-card animasi-muncul">
+          <div class="tim-photo">
+            <img 
+              src="https://i.ibb.co.com/3yf0m2sh/Whats-App-Image-2026-05-06-at-17-49-13.jpg" 
               alt="foto ainun"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="foto-fallback">👤</div>
+              class="img-fallback img-circle"
+            >
           </div>
-          <h3>AINUN NADHIFA</h3>
-          <span class="peran">CREATIVE MEDIA PRODUCER</span>
+          <h3 class="tim-name">AINUN NADHIFA</h3>
+          <p class="tim-role">CREATIVE MEDIA PRODUCER</p>
         </div>
-
         <!-- Anggota 4 -->
-        <div class="card card-tim">
-          <div class="foto-wrapper">
-            <img
-              src="https://i.ibb.co.com/tPWMfnGw/Whats-App-Image-2026-05-06-at-17-46-29.jpg"
+        <div class="tim-card animasi-muncul">
+          <div class="tim-photo">
+            <img 
+              src="https://i.ibb.co.com/tPWMfnGw/Whats-App-Image-2026-05-06-at-17-46-29.jpg" 
               alt="foto maulida"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="foto-fallback">👤</div>
+              class="img-fallback img-circle"
+            >
           </div>
-          <h3>MAULIDA AZZAHRA</h3>
-          <span class="peran">ASSESSMENT &amp; LINKTREE</span>
+          <h3 class="tim-name">MAULIDA AZZAHRA</h3>
+          <p class="tim-role">ASSESSMENT & LINKTREE</p>
         </div>
-
         <!-- Anggota 5 -->
-        <div class="card card-tim">
-          <div class="foto-wrapper">
-            <img
-              src="https://i.ibb.co.com/YBY827YP/Whats-App-Image-2026-05-06-at-17-27-46.jpg"
+        <div class="tim-card animasi-muncul">
+          <div class="tim-photo">
+            <img 
+              src="https://i.ibb.co.com/YBY827YP/Whats-App-Image-2026-05-06-at-17-27-46.jpg" 
               alt="foto fawwaz"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="foto-fallback">👤</div>
+              class="img-fallback img-circle"
+            >
           </div>
-          <h3>MAS'ADIL FAWWAZ</h3>
-          <span class="peran">VISUAL IDENTITY &amp; ASSET</span>
+          <h3 class="tim-name">MAS'ADIL FAWWAZ</h3>
+          <p class="tim-role">VISUAL IDENTITY & ASSET</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container">
-
-      <div class="footer-top">
-        <div class="footer-brand">
-          <p class="footer-logo">Sejarah<span>MU</span></p>
-          <p class="footer-tagline">Kisah Seru, Ilmu Baru</p>
-        </div>
-
-        <div class="footer-info">
-          <p><strong>PENTACODE</strong></p>
-          <p>Kelas A / Pendidikan Agama Islam</p>
-          <p>&copy; 2026 — Semua hak dilindungi</p>
-        </div>
-      </div>
-
-      <div class="footer-desc">
-        <p>
-          Muhammadiyah adalah organisasi Islam yang didirikan oleh Ahmad Dahlan pada tahun 1912
-          di Yogyakarta. Organisasi ini lahir sebagai respon terhadap kondisi umat Islam saat itu
-          yang mengalami kemunduran dalam bidang pendidikan, sosial, dan keagamaan. Muhammadiyah
-          bertujuan untuk memurnikan ajaran Islam sesuai Al-Qur'an dan Hadis, serta mendorong
-          kemajuan melalui pendidikan, kesehatan, dan kegiatan sosial. Hingga kini, Muhammadiyah
-          dikenal sebagai salah satu organisasi Islam terbesar di Indonesia.
-        </p>
-      </div>
-
+      <p class="footer-group"><strong>PENTACODE</strong> &mdash; A / Pendidikan Agama Islam &mdash; 2026</p>
+      <p class="footer-info">
+        Muhammadiyah adalah organisasi Islam yang didirikan oleh Ahmad Dahlan pada tahun 1912 di Yogyakarta. Organisasi ini lahir sebagai respon terhadap kondisi umat Islam saat itu yang mengalami kemunduran dalam bidang pendidikan, sosial, dan keagamaan. Muhammadiyah bertujuan untuk memurnikan ajaran Islam sesuai Al-Qur'an dan Hadis, serta mendorong kemajuan melalui pendidikan, kesehatan, dan kegiatan sosial.
+      </p>
+      <p class="footer-copy">&copy; 2026 Sejarah-MU oleh PENTACODE. Semua hak dilindungi.</p>
     </div>
   </footer>
 
-  <!-- Script utama -->
+  <!-- Link ke file JavaScript -->
   <script src="script.js"></script>
-
 </body>
 </html>
